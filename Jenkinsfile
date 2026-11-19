@@ -3,14 +3,14 @@ pipeline{
   stages{
     stage("Clean and install"){
       steps{
-        bat "mvn clean install"
+        bat "mvn clean install HMS"
     }
     stage("Test"){
       steps{
-        bat "mvn test"
+        bat "mvn test HMS"
     }
     stage("Package"){
       steps{
-        bat "mvn package"
+        bat "mvn package HMS"
     }
 }
