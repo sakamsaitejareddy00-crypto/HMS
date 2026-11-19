@@ -1,19 +1,21 @@
-pipeline{
-  agent any
-  stages{
-    stage("Clean and install"){
-      steps{
-        bat "mvn clean install HMS"
-      }
-    }
-    stage("Test"){
-      steps{
-        bat "mvn test HMS"
-      }
-    }
-    stage("Package"){
-      steps{
-        bat "mvn package HMS"
-      }
+pipeline {
+    agent any
+
+    stages {
+        stage('Clean') {
+            steps {
+                bat "mvn clean"
+            }
+        }
+        stage('Install and package') {
+            steps {
+                bat "mvn install package"
+            }
+        }
+        stage("Test"){
+            steps{
+                bat "mvn test"
+            }
+        }
     }
 }
